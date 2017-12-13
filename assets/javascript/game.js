@@ -7,6 +7,9 @@ $(document).ready(function() {
     var losses = 0;
     var totalScore = 0;
 
+    var scoreWins = $(".score-wins");
+    var scoreLosses = $(".score-losses");
+    var message = $(".message");
     var crystalImage = $(".crystal");
     var totalScoreWrite = $(".total-score");
 
@@ -28,6 +31,9 @@ $(document).ready(function() {
             $(this).attr("value", crystalNumber);
 
         });
+
+        totalScoreWrite.text("0");
+        
     }
 
     gameStart();
@@ -39,6 +45,21 @@ $(document).ready(function() {
         
         totalScore += crystalValue;
         totalScoreWrite.text(totalScore);
+
+        if (totalScore === randomNumber) {
+            message.text("You Win!");
+            wins++;
+            scoreWins.text(wins);
+            gameStart();
+        }
+
+        else if (totalScore >= randomNumber) {
+            message.text("You Lose!");
+            losses++;
+            scoreLosses.text(losses);
+            gameStart();
+        }
+
     });
 
 });
