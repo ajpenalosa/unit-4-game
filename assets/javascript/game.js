@@ -15,6 +15,9 @@ $(document).ready(function() {
 
     function gameStart() {
 
+        // Resets game
+        totalScore = 0;
+
         // Generates a random number between 19 - 120
         randomNumber = Math.floor(Math.random() * 102) + 19;
 
@@ -29,8 +32,12 @@ $(document).ready(function() {
 
             // Adds the random number as a value attribute to the image
             $(this).attr("value", crystalNumber);
+            console.log("This is crystal #" + i + " " + crystalNumber);
 
         });
+
+        // Separates the console log for each new game
+        console.log("------------------------------")
 
         // Displays "0" for Your Total Score
         totalScoreWrite.text("0");
