@@ -18,7 +18,7 @@ $(document).ready(function() {
         // Generates a random number between 19 - 120
         randomNumber = Math.floor(Math.random() * 102) + 19;
 
-        // Displays the random in the h2 with class of .number-to-guess
+        // Displays the random number in the h2 with class of .number-to-guess
         $(".number-to-guess").text(randomNumber);
 
         // Loops through image crystal image
@@ -32,20 +32,26 @@ $(document).ready(function() {
 
         });
 
+        // Displays "0" for Your Total Score
         totalScoreWrite.text("0");
         
     }
 
     gameStart();
 
+    // Event when clicking on a crystal image
     crystalImage.on("click", function() {
-
+        
+        // Assigns the value attribute to a variable called crystalValue
+        // Converts that value from a string to a number
         var crystalValue = ($(this).attr("value"));
         crystalValue = parseInt(crystalValue);
-        
+
+        // Adds the crystalValue to the totalScore and displays it in the browser
         totalScore += crystalValue;
         totalScoreWrite.text(totalScore);
 
+        // Once the totalScore equals the randomNumber, then win
         if (totalScore === randomNumber) {
             message.text("You Win!");
             wins++;
@@ -53,6 +59,7 @@ $(document).ready(function() {
             gameStart();
         }
 
+        // If the totalScore goes over the randomNumber, then lose
         else if (totalScore >= randomNumber) {
             message.text("You Lose!");
             losses++;
