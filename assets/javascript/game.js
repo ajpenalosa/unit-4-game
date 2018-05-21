@@ -67,7 +67,7 @@ $(document).ready(function() {
         }
 
         // If the totalScore goes over the randomNumber, then lose
-        else if (totalScore >= randomNumber) {
+        else if (totalScore > randomNumber) {
             message.text("You Lose!");
             losses++;
             scoreLosses.text(losses);
